@@ -6,24 +6,30 @@ interface Meta {
     url?: string;
     type?: string;
     site_name?: string;
+    [key: string]: any;
 }
-declare const parse: (url: string, config?: AxiosRequestConfig) => Promise<{
+declare const parse: (url: string, config?: AxiosRequestConfig | undefined) => Promise<{
     meta?: undefined;
     og?: undefined;
     images?: undefined;
 } | {
     meta: Meta;
     og: Meta;
-    images: any[];
+    images: {
+        src: string;
+    }[];
 }>;
-declare const parser: (url: string, config?: AxiosRequestConfig) => Promise<{
+declare const parser: (url: string, config?: AxiosRequestConfig | undefined) => Promise<{
     meta?: undefined;
     og?: undefined;
     images?: undefined;
 } | {
     meta: Meta;
     og: Meta;
-    images: any[];
+    images: {
+        src: string;
+    }[];
 }>;
 export default parser;
 export { parse, parser };
+//# sourceMappingURL=index.d.ts.map
